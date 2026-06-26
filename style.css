@@ -2,10 +2,27 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 
 body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    background-color: cornflowerblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 2px;
+}
+
+header {
+    padding: 1rem 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    background-color: blue;
+}
+
+header h2 {
+    font-size: 24px;
 }
