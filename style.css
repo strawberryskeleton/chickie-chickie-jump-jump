@@ -55,7 +55,19 @@ header h2 {
     width: 5rem;
     position: absolute;
     bottom: 3rem;
-    right: 2rem;
+    /* right: 2rem; */
+    left: 80rem;
+    animation: moveEgg 3s infinite linear;
+}
+
+@keyframes moveEgg {
+    0% {
+        left: 80rem;
+    }
+
+    100% {
+        left: -1rem;
+    }
 }
 
 .hidden {
