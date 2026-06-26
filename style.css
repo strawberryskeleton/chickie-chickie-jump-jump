@@ -50,6 +50,33 @@ header h2 {
     left: 2rem;
 }
 
+#egg {
+    height: 5rem;
+    width: 5rem;
+    position: absolute;
+    bottom: 3rem;
+    right: 2rem;
+}
+
 .hidden {
     display: none;
+}
+
+.jump {
+    animation: jumpAnimation 0.5s linear;
+}
+
+@keyframes jumpAnimation {
+    0% {
+        top: 20rem;
+    }
+    30% {
+        top: 18rem;
+    }
+    70% {
+        top: 18rem;
+    }
+    100% {
+        top: 20rem;
+    }
 }
