@@ -9,7 +9,10 @@ body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background-color: cornflowerblue;
+    /* background-color: cornflowerblue; */
+    background: url('./assets/bg.png');
+    background-size: contain;
+    background-repeat: repeat-x;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     letter-spacing: 2px;
 }
@@ -20,9 +23,33 @@ header {
     display: flex;
     justify-content: space-between;
     font-size: 24px;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 header h2 {
     font-size: 24px;
+}
+
+/* main {
+    padding: 1rem;
+} */
+
+#start-screen,
+#end-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#chickie {
+    height: 8rem;
+    width: 8rem;
+    position: absolute;
+    bottom: 4rem;
+    left: 2rem;
+}
+
+.hidden {
+    display: none;
 }
