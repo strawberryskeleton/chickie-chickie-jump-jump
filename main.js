@@ -8,11 +8,16 @@ const egg = document.getElementById('egg')
 const rootFontSize = parseFloat(window.getComputedStyle(document.documentElement).fontSize);
 
 let score = 0
-let gameActive = true
+let gameActive = false
+let isAlive
 // let lastTime = null
 
 document.addEventListener('keydown', (ev) => {
 //   console.log(ev.key);
+
+  if(!gameActive) {
+    startGame()
+  }
   
   if (gameActive && ev.code === 'Space') {
     jump()
@@ -48,22 +53,44 @@ function jump () {
     }, 500)
 }
 
-const isAlive = setInterval(() => {
-    let chickieTop = parseInt(window.getComputedStyle(chickie).getPropertyValue("top"))
-    let eggLeft = parseInt(window.getComputedStyle(egg).getPropertyValue("left"))
+function startCollisionCheck () {
+    isAlive = setInterval(() => {
+        let chickieTop = parseInt(window.getComputedStyle(chickie).getPropertyValue("top"))
+        let eggLeft = parseInt(window.getComputedStyle(egg).getPropertyValue("left"))
 
-    let chickieLeftPx = 5 * rootFontSize
-    let chickieRightPx = (5+6) * rootFontSize
-    let eggLeftPx = 5 * rootFontSize
-    let eggRightPx = eggLeft + (3 * rootFontSize)
+        let chickieLeftPx = 5 * rootFontSize
+        let chickieRightPx = (5+6) * rootFontSize
+        let eggLeftPx = 3 * rootFontSize
+        let eggRightPx = eggLeft + (3 * rootFontSize)
 
-    let groundLevel = 23.5 * rootFontSize
+        let groundLevel = 23.5 * rootFontSize
 
-    if ((eggRightPx > chickieLeftPx && eggLeft < chickieRightPx) && (chickieTop >= groundLevel)) {
-        alert('game over')
-        egg.style.animation = 'none'
-        clearInterval(isAlive)
-        gameActive = false
-    }
+        if ((eggRightPx > chickieLeftPx && eggLeft < chickieRightPx) && (chickieTop >= groundLevel)) {
+            // alert('game over')
+            endGame()
+            // egg.classList.remove('moving')
+            clearInterval(isAlive)
+            // gameActive = false
+        }
 
-}, 10);
+    }, 10);
+}
+
+function startGame () {
+    startScreen.classList.add('hidden')
+    endScreen.classList.add('hidden')
+    score = 0
+    scoreDisplay.innerText = score
+
+    egg.classList.add('moving')
+
+    gameActive = true
+    startCollisionCheck()
+}
+
+function endGame () {
+    gameActive = false
+    egg.classList.remove('moving')
+    endScreen.classList.remove('hidden')
+    clearInterval(isAlive)
+}

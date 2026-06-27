@@ -52,12 +52,16 @@ header h2 {
 }
 
 #egg {
-    height: 5rem;
-    width: 4rem;
+    height: 4rem;
+    width: 3rem;
     position: absolute;
     bottom: 3rem;
     /* right: 2rem; */
     left: 80rem;
+    /* animation: moveEgg 3s infinite linear; */
+}
+
+.moving {
     animation: moveEgg 3s infinite linear;
 }
 
