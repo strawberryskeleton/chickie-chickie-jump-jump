@@ -14,10 +14,11 @@ body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    /* position: relative; */
     /* background-color: cornflowerblue; */
-    background: url('./assets/bg.png');
-    background-size: contain;
-    background-repeat: repeat-x;
+    /* background: url('./assets/bg.png'); */
+    /* background-size: contain; */
+    /* background-repeat: repeat-x; */
     /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     font-family: 'Kirsty Regular', sans-serif;
     letter-spacing: 2px;
@@ -25,12 +26,15 @@ body {
 }
 
 header {
+    position: fixed;
+    top: 0;
     padding: 1.2rem 2rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 24px;
+    z-index: 10;
     /* background-color: blue; */
 }
 
@@ -38,9 +42,72 @@ header h2 {
     font-size: 32px;
 }
 
-/* main {
-    padding: 1rem;
+main {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    /* padding: 1rem; */
+    /* z-index: 10; */
+}
+
+#bg-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-image: url(./assets/bg.png);
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+}
+
+.bg-moving {
+    animation: moveBg 15s infinite linear;
+}
+
+/* #bg-div img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
 } */
+
+@keyframes moveBg {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -100rem 0;
+    }
+}
+
+#cloud-div {
+    position: absolute;
+    width: 18rem;
+    height: 5rem;
+    top: 6rem;
+    right: -18rem;
+    z-index: 10;
+}
+
+#cloud-div img {
+    width: 100%;
+}
+
+.cloud-moving {
+    animation: cloudMove 8s infinite linear;
+}
+
+@keyframes cloudMove {
+    0% {
+        right: 0%;
+    }
+    100% {
+        right: 100%;
+    }
+}
 
 #start-screen,
 #end-screen {
@@ -49,6 +116,7 @@ header h2 {
     left: 50%;
     transform: translate(-50%);
     font-size: 24px;
+    z-index: 10;
 }
 
 #chickie {
@@ -58,6 +126,7 @@ header h2 {
     /* bottom: 4rem; */
     top: 24.5rem;
     left: 5rem;
+    z-index: 10;
 }
 
 #egg {
@@ -68,6 +137,7 @@ header h2 {
     /* right: 2rem; */
     left: 80rem;
     /* animation: moveEgg 3s infinite linear; */
+    z-index: 10;
 }
 
 .moving {

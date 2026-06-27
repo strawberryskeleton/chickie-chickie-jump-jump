@@ -2,11 +2,15 @@ const scoreDisplay = document.getElementById('score')
 const highScoreDisplay = document.getElementById('high-score')
 const startScreen = document.getElementById('start-screen')
 const endScreen = document.getElementById('end-screen')
+const bgDiv = document.getElementById('bg-div')
+const cloudDiv = document.getElementById('cloud-div')
+const cloud = document.getElementById('cloud')
 
 const chickie = document.getElementById('chickie')
 const egg = document.getElementById('egg')
 
 const rootFontSize = parseFloat(window.getComputedStyle(document.documentElement).fontSize);
+let cloudImgInterval
 
 let score = 0
 let scoreTimer
@@ -15,7 +19,7 @@ let highScore = localStorage.getItem('highScore')
 if (!highScore) {
     highScore = 0
 }
-console.log(highScore)
+// console.log(highScore)
 
 let gameActive = false
 let isAlive
@@ -100,12 +104,29 @@ function startScoring () {
     }
 }
 
+function cloudChange () {
+    let cloudImages = ['./assets/cloud1.png', './assets/cloud2.png', './assets/cloud3.png', './assets/cloud4.png']
+
+    cloudImgInterval = setInterval(() => {
+        let randomIndex = Math.floor(Math.random() * cloudImages.length)
+
+        cloud.setAttribute('src', cloudImages[randomIndex])
+    }, 8000)
+}
+
+
 function startGame () {
     startScreen.classList.add('hidden')
     endScreen.classList.add('hidden')
+
+    bgDiv.style.backgroundPosition = "";
+    bgDiv.classList.add('bg-moving')
+    cloudDiv.classList.add('cloud-moving')
+    
     score = 0
     scoreDisplay.innerText = score
     highScoreDisplay.innerText = highScore.toString().padStart(4, '0')
+    bgDiv.style.backgroundPosition = "";
 
     egg.style.left = ""
     egg.setAttribute('src', './assets/egg.png')
@@ -115,11 +136,14 @@ function startGame () {
     gameActive = true
     startCollisionCheck()
     startScoring()
+    cloudChange()
 }
 
 function endGame () {
     gameActive = false
 
+    bgDiv.classList.remove('bg-moving')
+    cloudDiv.classList.remove('cloud-moving')
     // egg.innerHTML = `<img src="./assets/egg_broken.png" alt="egg broken" id="egg" />`
     let currentEggLeft = window.getComputedStyle(egg).getPropertyValue('left')
     egg.style.left = currentEggLeft
