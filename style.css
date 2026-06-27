@@ -25,16 +25,17 @@ body {
 }
 
 header {
-    padding: 1rem 1.5rem;
+    padding: 1.2rem 2rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 24px;
     /* background-color: blue; */
 }
 
 header h2 {
-    font-size: 28px;
+    font-size: 32px;
 }
 
 /* main {

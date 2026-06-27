@@ -1,4 +1,5 @@
 const scoreDisplay = document.getElementById('score')
+const highScoreDisplay = document.getElementById('high-score')
 const startScreen = document.getElementById('start-screen')
 const endScreen = document.getElementById('end-screen')
 
@@ -9,6 +10,13 @@ const rootFontSize = parseFloat(window.getComputedStyle(document.documentElement
 
 let score = 0
 let scoreTimer
+
+let highScore = localStorage.getItem('highScore')
+if (!highScore) {
+    highScore = 0
+}
+console.log(highScore)
+
 let gameActive = false
 let isAlive
 // let lastTime = null
@@ -80,7 +88,7 @@ function startCollisionCheck () {
 function startScoring () {
     scoreTimer = setInterval(() => {
         score++
-        scoreDisplay.innerText = score.toString().padStart(3, '0')
+        scoreDisplay.innerText = score.toString().padStart(4, '0')
     }, 100)
 }
 
@@ -89,6 +97,7 @@ function startGame () {
     endScreen.classList.add('hidden')
     score = 0
     scoreDisplay.innerText = score
+    highScoreDisplay.innerText = highScore.toString().padStart(4, '0')
 
     egg.style.left = ""
     egg.setAttribute('src', './assets/egg.png')
@@ -112,5 +121,10 @@ function endGame () {
     endScreen.classList.remove('hidden')
     clearInterval(isAlive)
     clearInterval(scoreTimer)
+
+    if (score > highScore) {
+        highScore = score
+        localStorage.setItem('highScore', highScore)
+    }
 
 }
