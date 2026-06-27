@@ -19,4 +19,4 @@ html+css+js version of one of the very first games that I made in scratch
 - game inspiration from chrome dino
 - font from: [https://www.1001fonts.com/kirsty-font.html](https://www.1001fonts.com/kirsty-font.html)
 - all assets (bg + chickie + egg + sound effects) from: [https://scratch.mit.edu/](https://scratch.mit.edu/)
-- AI help: dynamic speed update code + debugging playing sound(had to convert to .mp3 from .wav for the fix , rest was same)
+- AI help: dynamic speed update code + debugging playing sound(had to convert to .mp3 from .wav for the fix , rest was same) + debugging moving background(had to restructure the positioning of the element etc.) + some help in collision logic(mine didn't work at all, since i kept trying to do it like i did it in scratch)
