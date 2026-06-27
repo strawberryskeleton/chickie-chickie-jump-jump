@@ -90,6 +90,8 @@ function startGame () {
     score = 0
     scoreDisplay.innerText = score
 
+    egg.style.left = ""
+    egg.setAttribute('src', './assets/egg.png')
     egg.classList.add('moving')
 
     gameActive = true
@@ -99,8 +101,16 @@ function startGame () {
 
 function endGame () {
     gameActive = false
+
+    // egg.innerHTML = `<img src="./assets/egg_broken.png" alt="egg broken" id="egg" />`
+    let currentEggLeft = window.getComputedStyle(egg).getPropertyValue('left')
+    egg.style.left = currentEggLeft
+
     egg.classList.remove('moving')
+    egg.setAttribute('src', './assets/egg_broken.png')
+
     endScreen.classList.remove('hidden')
     clearInterval(isAlive)
     clearInterval(scoreTimer)
+
 }
