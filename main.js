@@ -8,6 +8,7 @@ const egg = document.getElementById('egg')
 const rootFontSize = parseFloat(window.getComputedStyle(document.documentElement).fontSize);
 
 let score = 0
+let scoreTimer
 let gameActive = false
 let isAlive
 // let lastTime = null
@@ -76,6 +77,13 @@ function startCollisionCheck () {
     }, 10);
 }
 
+function startScoring () {
+    scoreTimer = setInterval(() => {
+        score++
+        scoreDisplay.innerText = score
+    }, 100)
+}
+
 function startGame () {
     startScreen.classList.add('hidden')
     endScreen.classList.add('hidden')
@@ -86,6 +94,7 @@ function startGame () {
 
     gameActive = true
     startCollisionCheck()
+    startScoring()
 }
 
 function endGame () {
@@ -93,4 +102,5 @@ function endGame () {
     egg.classList.remove('moving')
     endScreen.classList.remove('hidden')
     clearInterval(isAlive)
+    clearInterval(scoreTimer)
 }
