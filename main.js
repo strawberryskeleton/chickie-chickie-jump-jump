@@ -80,7 +80,7 @@ function startCollisionCheck () {
 function startScoring () {
     scoreTimer = setInterval(() => {
         score++
-        scoreDisplay.innerText = score
+        scoreDisplay.innerText = score.toString().padStart(3, '0')
     }, 100)
 }
 
