@@ -90,6 +90,14 @@ function startScoring () {
         score++
         scoreDisplay.innerText = score.toString().padStart(4, '0')
     }, 100)
+
+    if (score % 100 == 0) {
+        let currentDuration = parseFloat(window.getComputedStyle(egg).animationDuration)
+
+        if (currentDuration > 1.0) {
+            egg.style.animationDuration = (currentDuration - 0.2) + 's'
+        }
+    }
 }
 
 function startGame () {
@@ -102,6 +110,7 @@ function startGame () {
     egg.style.left = ""
     egg.setAttribute('src', './assets/egg.png')
     egg.classList.add('moving')
+    egg.style.animationDuration = '3s'
 
     gameActive = true
     startCollisionCheck()
