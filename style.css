@@ -5,6 +5,11 @@
     user-select: none;
 }
 
+@font-face {
+    font-family: 'Kirsty Regular';
+    src: url(./assets/kirsty_regular.otf) format('opentype');
+}
+
 body {
     width: 100vw;
     height: 100vh;
@@ -13,8 +18,10 @@ body {
     background: url('./assets/bg.png');
     background-size: contain;
     background-repeat: repeat-x;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    font-family: 'Kirsty Regular', sans-serif;
     letter-spacing: 2px;
+    color: #106100;
 }
 
 header {
@@ -27,7 +34,7 @@ header {
 }
 
 header h2 {
-    font-size: 24px;
+    font-size: 28px;
 }
 
 /* main {
@@ -37,9 +44,10 @@ header h2 {
 #start-screen,
 #end-screen {
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%);
+    font-size: 24px;
 }
 
 #chickie {
