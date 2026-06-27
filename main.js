@@ -6,6 +6,10 @@ const bgDiv = document.getElementById('bg-div')
 const cloudDiv = document.getElementById('cloud-div')
 const cloud = document.getElementById('cloud')
 
+const jumpSound = new Audio('./assets/jump.mp3')
+const crackSound = new Audio('./assets/crunch.mp3')
+const loseSound = new Audio('./assets/lose.mp3')
+
 const chickie = document.getElementById('chickie')
 const egg = document.getElementById('egg')
 
@@ -61,9 +65,12 @@ function jump () {
 
     chickie.classList.add('jump')
 
+    jumpSound.play()
+
     setTimeout(() => {
         chickie.classList.remove('jump')
     }, 500)
+
 }
 
 function startCollisionCheck () {
@@ -80,9 +87,10 @@ function startCollisionCheck () {
 
         if ((eggRightPx > chickieLeftPx && eggLeft < chickieRightPx) && (chickieTop >= groundLevel)) {
             // alert('game over')
+            loseSound.play()
             endGame()
             // egg.classList.remove('moving')
-            clearInterval(isAlive)
+            // clearInterval(isAlive)
             // gameActive = false
         }
 
@@ -113,6 +121,7 @@ function cloudChange () {
         cloud.setAttribute('src', cloudImages[randomIndex])
     }, 8000)
 }
+
 
 
 function startGame () {
@@ -149,6 +158,7 @@ function endGame () {
     egg.style.left = currentEggLeft
 
     egg.classList.remove('moving')
+    crackSound.play()
     egg.setAttribute('src', './assets/egg_broken.png')
 
     endScreen.classList.remove('hidden')
