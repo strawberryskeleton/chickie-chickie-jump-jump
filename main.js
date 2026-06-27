@@ -59,10 +59,10 @@ function startCollisionCheck () {
         let chickieTop = parseInt(window.getComputedStyle(chickie).getPropertyValue("top"))
         let eggLeft = parseInt(window.getComputedStyle(egg).getPropertyValue("left"))
 
-        let chickieLeftPx = 5 * rootFontSize
+        let chickieLeftPx = 6 * rootFontSize
         let chickieRightPx = (5+6) * rootFontSize
-        let eggLeftPx = 3 * rootFontSize
-        let eggRightPx = eggLeft + (3 * rootFontSize)
+        let eggWidthtPx = 3 * rootFontSize
+        let eggRightPx = eggLeft + eggWidthtPx
 
         let groundLevel = 23.5 * rootFontSize
 
