@@ -43,16 +43,17 @@ header h2 {
 }
 
 #chickie {
-    height: 8rem;
+    height: 9rem;
     width: 8rem;
     position: absolute;
-    bottom: 4rem;
-    left: 2rem;
+    /* bottom: 4rem; */
+    top: 24.5rem;
+    left: 5rem;
 }
 
 #egg {
     height: 5rem;
-    width: 5rem;
+    width: 4rem;
     position: absolute;
     bottom: 3rem;
     /* right: 2rem; */
@@ -80,15 +81,15 @@ header h2 {
 
 @keyframes jumpAnimation {
     0% {
-        top: 20rem;
+        top: 24.5rem;
     }
     30% {
-        top: 18rem;
+        top: 17rem;
     }
     70% {
-        top: 18rem;
+        top: 17rem;
     }
     100% {
-        top: 20rem;
+        top: 24.5rem;
     }
 }
